@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: service-calendarday
+  datasource:
+    username: root
+    password: bsz5681876
+    url: jdbc:mysql://localhost:3306/mybatis?serverTimezone=GMT%2B8&characterEncoding=utf8&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  jackson:
+    date-format: yyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+server:
+  port: 8817
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

@@ -1,0 +1,32 @@
+package com.atguigu.eduservice.service.impl;
+
+import com.atguigu.eduservice.entity.EduVideo;
+import com.atguigu.eduservice.mapper.EduVideoMapper;
+import com.atguigu.eduservice.service.EduVideoService;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.junit.Test;
+import org.springframework.amqp.core.AmqpAdmin;
+import org.springframework.amqp.core.DirectExchange;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/**
+ * <p>
+ * 课程视频 服务实现类
+ * </p>
+ *
+ * @author testjava
+ * @since 2020-11-11
+ */
+@Service
+public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo> implements EduVideoService {
+
+    @Override
+    public void deleteVideoByCourseId(String courseId) {
+        QueryWrapper<EduVideo> wrapper = new QueryWrapper<>();
+        wrapper.eq("course_id",courseId);
+        baseMapper.delete(wrapper);
+    }
+
+}
